@@ -1,0 +1,9 @@
+#dropContainer {
+  width: 960px;
+  height: 768px;
+  margin-top: 40px;
+  margin: auto;
+  text-align: center;
+  vertical-align: text;
+  border: black 1px solid;
+}

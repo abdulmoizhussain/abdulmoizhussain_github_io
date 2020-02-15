@@ -1,5 +1,7 @@
 import React from 'react';
 import GitHubSvg from '../github_svg';
+import { Link } from 'react-router-dom';
+import { AppRoute } from './../../common/constants';
 
 export default () => (
   <nav className='navbar'>
@@ -7,8 +9,8 @@ export default () => (
       <GitHubSvg />
     </a>
 
-    <a className='ml-auto' href="./index.html" title="Home Page">
+    <Link to={AppRoute.HomePage} title="Home Page" className='ml-auto' >
       <b>Home</b>
-    </a>
+    </Link>
   </nav>
 );

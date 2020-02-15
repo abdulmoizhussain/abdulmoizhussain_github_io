@@ -8,10 +8,10 @@ export default class extends React.Component {
     youtubeWebUrl: '',
   };
 
-  constructor(props) {
-    super(props);
-    this.inputCopyToClip = React.createRef();
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.inputCopyToClip = React.createRef();
+  // }
 
   onKeyUpEmbeddedToWebUrl = () => {
     const { youtubeEmbeddedUrl } = this.state;
@@ -66,7 +66,7 @@ export default class extends React.Component {
       <br />
       <input
         type='text'
-        placeholder=''
+        placeholder='https://youtu.be/eg_link'
         id='youtube_embedded_url'
         onKeyUp={this.onKeyUpEmbeddedToWebUrl}
         value={youtubeEmbeddedUrl}
@@ -79,7 +79,7 @@ export default class extends React.Component {
 
       <button onClick={this.copyToClip} className={displayCopyButton ? '' : 'invisible'}>Copy</button>
 
-      <input hidden className='invisible' ref={this.inputCopyToClip} />
+      {/* <input hidden className='invisible' ref={this.inputCopyToClip} /> */}
     </div>;
   }
 }
