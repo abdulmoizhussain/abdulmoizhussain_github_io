@@ -61,17 +61,16 @@ export default class extends React.Component {
   render() {
     const { displayCopyButton, message, youtubeEmbeddedUrl } = this.state;
 
-    return <div>
+    return <>
       <label htmlFor="youtube_embedded_url">Convert shared/embedded youtube-url to web-url:</label>
       <br />
       <input
         type='text'
-        placeholder='https://youtu.be/eg_link'
+        placeholder="https://youtu.be/eg_link"
         id='youtube_embedded_url'
         onKeyUp={this.onKeyUpEmbeddedToWebUrl}
         value={youtubeEmbeddedUrl}
         onChange={e => this.setState({ youtubeEmbeddedUrl: e.target.value })}
-        size={50}
       />
       <br />
       <span>{message}</span>
@@ -80,6 +79,6 @@ export default class extends React.Component {
       <button onClick={this.copyToClip} className={displayCopyButton ? '' : 'invisible'}>Copy</button>
 
       {/* <input hidden className='invisible' ref={this.inputCopyToClip} /> */}
-    </div>;
+    </>;
   }
 }
