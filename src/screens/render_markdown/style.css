@@ -1,9 +1,12 @@
 #dropContainer {
   width: 960px;
-  height: 768px;
-  margin-top: 40px;
+  height: 150px;
   margin: auto;
   text-align: center;
   vertical-align: text;
-  border: black 1px solid;
+  border: black 2px solid;
+}
+
+.on_drag {
+  background-color: azure;
 }
