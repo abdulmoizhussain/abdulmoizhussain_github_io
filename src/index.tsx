@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import Router from './router';
 import * as serviceWorker from './service_worker';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './index.css';
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(<Router />, document.getElementById('root'));
 

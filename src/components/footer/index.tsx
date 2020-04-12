@@ -1,8 +1,9 @@
 import React from 'react';
 
 export default class Footer extends React.Component {
+  // "position: sticky; bottom: 0; width: 100%"
   render() {
-    return <footer className="social-footer" style="position: sticky; bottom: 0; width: 100%">
+    return <footer className="social-footer" style={{ position: "sticky", bottom: 0, width: "100%" }}>
       <div className="social-footer-left">&copy; 2018, All Rights Reserved.</div>
       <div className="social-footer-icons">
 
