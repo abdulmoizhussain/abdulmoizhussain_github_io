@@ -5,11 +5,11 @@ import YoutubeUrlConverter from './../../components/youtube_url_converter';
 import './app.css';
 
 export default () => (
-  <div className="app app_header dark_background">
+  <div className="text-center app_header dark_background">
     <ul className='list-unstyled'>
-      <li><Link className='app_link' to={AppRoute.RgbToHex}>rgb-hex</Link></li>
-      <li><Link className='app_link' to={AppRoute.RenderMarkdown}>render-markdown</Link></li>
-      <li><YoutubeUrlConverter /></li>
+      <li className="row text-center"><Link className='col app_link' to={AppRoute.RgbToHex}>rgb-hex</Link></li>
+      <li className="row"><Link className='col app_link' to={AppRoute.RenderMarkdown}>render-markdown</Link></li>
+      <li className="row"><YoutubeUrlConverter /></li>
     </ul>
   </div>
 );

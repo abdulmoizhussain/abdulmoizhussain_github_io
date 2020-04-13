@@ -1,17 +1,15 @@
 import React from 'react';
 
 export default class extends React.Component {
+  inputCopyToClip = React.createRef<HTMLInputElement>();
+
   state = {
     displayCopyButton: false,
     message: '',
     youtubeEmbeddedUrl: '',
     youtubeWebUrl: '',
+    copyToClipInProgress: false,
   };
-
-  // constructor(props) {
-  //   super(props);
-  //   // this.inputCopyToClip = React.createRef();
-  // }
 
   onKeyUpEmbeddedToWebUrl = () => {
     const { youtubeEmbeddedUrl } = this.state;
@@ -47,38 +45,54 @@ export default class extends React.Component {
   }
 
   copyToClip = () => {
-    // https://stackoverflow.com/a/52033479/8075004
-    navigator.clipboard.writeText(this.state.youtubeWebUrl);
-
     // owner of solution: https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
-    // const input = this.inputCopyToClip.current;
-    // input.value = this.state.youtubeWebUrl;
-    // input.select();
-    // input.setSelectionRange(0, 99999); /*For mobile devices*/
-    // window.document.execCommand('copy');
+    const input = this.inputCopyToClip.current;
+    if (input) {
+      input.value = this.state.youtubeWebUrl;
+
+      this.setState({ copyToClipInProgress: true }, () => {
+        input.select();
+        input.setSelectionRange(0, 99999); /*For mobile devices*/
+        document.execCommand('copy');
+        this.setState({ copyToClipInProgress: false });
+      });
+    }
   }
 
   render() {
     const { displayCopyButton, message, youtubeEmbeddedUrl } = this.state;
 
-    return <>
-      <label htmlFor="youtube_embedded_url">Convert shared/embedded youtube-url to web-url:</label>
-      <br />
-      <input
-        type='text'
-        placeholder="https://youtu.be/eg_link"
-        id='youtube_embedded_url'
-        onKeyUp={this.onKeyUpEmbeddedToWebUrl}
-        value={youtubeEmbeddedUrl}
-        onChange={e => this.setState({ youtubeEmbeddedUrl: e.target.value })}
-      />
-      <br />
-      <span>{message}</span>
-      <br />
+    return <div className="row">
+      <div className="col">
+        <div className="row">
+          <label className="col" htmlFor="youtube_embedded_url">Convert embedded/shared youtube-url to web-url:</label>
+        </div>
 
-      <button onClick={this.copyToClip} className={displayCopyButton ? '' : 'invisible'}>Copy</button>
+        <div className="row">
+          <input
+            type='text'
+            placeholder="https://youtu.be/eg_link"
+            id='youtube_embedded_url'
+            value={youtubeEmbeddedUrl}
+            className="col"
+            onChange={e => this.setState({ youtubeEmbeddedUrl: e.target.value }, this.onKeyUpEmbeddedToWebUrl)}
+          />
+        </div>
 
-      {/* <input hidden className='invisible' ref={this.inputCopyToClip} /> */}
-    </>;
+        <div className="row"><span className="col">{message}</span></div>
+
+        <br />
+
+        <div className="row">
+          <div className="col-1" />
+          <div className="col-10">
+            <button onClick={this.copyToClip} className={`btn btn-primary btn-block ${displayCopyButton ? '' : 'invisible'}`}>Copy</button>
+          </div>
+          <div className="col-1" />
+        </div>
+
+        <input hidden={!this.state.copyToClipInProgress} ref={this.inputCopyToClip} />
+      </div>
+    </div>;
   }
 }
