@@ -4,6 +4,7 @@ import { AppRoute } from './../common/constants';
 import HomePage from './../screens/home_page';
 import RgbToHex from './../screens/rgb_to_hex';
 import RenderMarkdown from './../screens/render_markdown';
+import Counter from './../screens/counter';
 import Header from '../components/header';
 
 export default function () {
@@ -17,6 +18,7 @@ export default function () {
           <Route exact path={AppRoute.HomePage}><HomePage /></Route>
           <Route path={AppRoute.RgbToHex}><RgbToHex /></Route>
           <Route path={AppRoute.RenderMarkdown}><RenderMarkdown /></Route>
+          <Route path={AppRoute.Counter}>< Counter /></Route>
           <Redirect from='*' to={AppRoute.HomePage} />
         </Switch>
       </>

@@ -9,6 +9,7 @@ export default () => (
     <ul className='list-unstyled'>
       <li className="row text-center"><Link className='col app_link' to={AppRoute.RgbToHex}>rgb-hex</Link></li>
       <li className="row"><Link className='col app_link' to={AppRoute.RenderMarkdown}>render-markdown</Link></li>
+      <li className="row"><Link className='col app_link' to={AppRoute.Counter}>counter</Link></li>
       <li className="row"><YoutubeUrlConverter /></li>
     </ul>
   </div>

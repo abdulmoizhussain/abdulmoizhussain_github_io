@@ -1,0 +1,11 @@
+.swipe-container {
+  background-color: cadetblue;
+  height: 60vh;
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.mt-40 {
+  margin-top: 16vh;
+}
