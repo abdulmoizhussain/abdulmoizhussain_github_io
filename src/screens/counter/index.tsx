@@ -77,6 +77,7 @@ export default class RenderMarkdown extends React.Component {
           onSwipedLeft={this.onDecrement}
         >
           <button onClick={this.onResetCounter}>Reset</button>
+          <button className="ml-2" onClick={this.saveCurrentCounter}>Save</button>
           <h1 className="mt-40">{this.state.counter}</h1>
         </Swipeable>
       </div>
