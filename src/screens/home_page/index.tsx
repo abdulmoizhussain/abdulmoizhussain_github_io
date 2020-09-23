@@ -6,24 +6,25 @@ import MakeTextSearchable from '../../components/make_text_searchable';
 import './app.css';
 
 export default () => (
-  <div className="text-center app_header dark_background">
+  <div className="text-center home_page dark_background">
     <ul className='list-unstyled'>
-      <li className="row text-center">
+      <li className="row mt-3">
         <div className="col">
           <Link className='col app_link p-0' to={AppRoute.RgbToHex}>RGB-Hex</Link>
         </div>
       </li>
       <li className="row">
         <div className="col">
-          <Link className='col app_link p-0' to={AppRoute.RenderMarkdown}>Render Markdown</Link></div>
+          <Link className='col app_link p-0' to={AppRoute.RenderMarkdown}>Render Markdown</Link>
+        </div>
       </li>
       <li className="row">
         <div className="col">
           <Link className='col app_link p-0' to={AppRoute.Counter}>Counter</Link>
         </div>
       </li>
-      <li className="row mt-2"><MakeTextSearchable /></li>
-      <li className="row mt-2"><YouTubeUrlConverter /></li>
+      <li className="row mt-3"><MakeTextSearchable /></li>
+      <li className="row mt-3"><YouTubeUrlConverter /></li>
     </ul>
   </div>
 );

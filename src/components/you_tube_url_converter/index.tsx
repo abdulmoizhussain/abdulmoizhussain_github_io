@@ -30,14 +30,12 @@ export default class extends React.Component {
     // try {
     //   const url = new URL(inputElement.value);
     //   let videoId;
-
     //   if (url.search) {
     //     const urlSearchParams = new URLSearchParams(url.search);
     //     videoId = urlSearchParams.get('v');
     //   } else {
     //     videoId = url.pathname.replace('/', '');
     //   }
-
     //   resultElement.innerHTML = `https://www.youtube.com/watch?v=${videoId}`;
     // } catch {
     //   resultElement.innerHTML = 'Invalid url';
@@ -66,18 +64,21 @@ export default class extends React.Component {
       <div className="row">
         <div className="col">
           <div className="row">
-            <label className="col" htmlFor="youtube_embedded_url">Convert embedded/shared youtube-url to web-url:</label>
+            <label className="col mb-0" htmlFor="youtube_embedded_url">Convert embedded/shared youtube-url to web-url:</label>
           </div>
 
           <div className="row">
-            <input
-              type='text'
-              placeholder="https://youtu.be/eg_link"
-              id='youtube_embedded_url'
-              value={youtubeEmbeddedUrl}
-              className="col"
-              onChange={e => this.setState({ youtubeEmbeddedUrl: e.target.value }, this.onKeyUpEmbeddedToWebUrl)}
-            />
+            <div className="col">
+              <input
+                type="text"
+                placeholder="https://youtu.be/eg_link"
+                id='youtube_embedded_url'
+                value={youtubeEmbeddedUrl}
+                size={25}
+                className="text-center"
+                onChange={e => this.setState({ youtubeEmbeddedUrl: e.target.value }, this.onKeyUpEmbeddedToWebUrl)}
+              />
+            </div>
           </div>
 
           <div className="row"><span className="col">{message}</span></div>

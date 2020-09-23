@@ -35,7 +35,8 @@ export default class RenderMarkdown extends React.Component {
             type="text"
             placeholder="Paste here the text to clean."
             value={this.state.textToClean}
-            size={35}
+            className="text-center"
+            size={25}
             onChange={ev => { this.setState({ textToClean: ev.target.value }); }}
           />
         </div>
