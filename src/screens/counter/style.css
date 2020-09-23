@@ -1,5 +1,5 @@
 .swipe-container {
-  background-color: cadetblue;
+  background-color: #B4C6D7FF;
   height: 60vh;
   border: 1px solid black;
   vertical-align: middle;
@@ -8,4 +8,13 @@
 
 .mt-40 {
   margin-top: 16vh;
+}
+
+.un-selectable-text {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

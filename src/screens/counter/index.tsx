@@ -11,6 +11,7 @@ const ArrowKeyNames = {
 };
 
 export default class RenderMarkdown extends React.Component {
+  counterTextElement = React.createRef<HTMLHeadingElement>();
   swipeRequiredDistance = 60;
   state = {
     counter: 0
@@ -20,12 +21,23 @@ export default class RenderMarkdown extends React.Component {
     this.setState({ counter: Number(localStorage.getItem(LocalStorageKey.COUNTER)) });
     window.addEventListener("beforeunload", this.onBeforeUnload);
     window.addEventListener("keyup", this.onKeyUpListener);
+    this.makeCounterTextUnSelectable();
   }
   componentWillUnmount() {
     this.saveCurrentCounter();
     window.removeEventListener("beforeunload", this.onBeforeUnload);
     window.removeEventListener("keyup", this.onKeyUpListener);
   }
+
+  makeCounterTextUnSelectable = () => {
+    const element = this.counterTextElement.current;
+    if (element) {
+      element.addEventListener('selectstart', () => false);
+      element.addEventListener('mousedown', () => false);
+      element.style.setProperty('MozUserSelect', 'none');
+      element.style.setProperty('userSelect', 'none');
+    }
+  };
 
   onBeforeUnload = () => {
     this.saveCurrentCounter();
@@ -76,9 +88,9 @@ export default class RenderMarkdown extends React.Component {
           onSwipedDown={this.onDecrement}
           onSwipedLeft={this.onDecrement}
         >
-          <button onClick={this.onResetCounter}>Reset</button>
-          <button className="ml-2" onClick={this.saveCurrentCounter}>Save</button>
-          <h1 className="mt-40">{this.state.counter}</h1>
+          <button className="mt-2" onClick={this.onResetCounter}>Reset</button>
+          <button className="mt-2 ml-2" onClick={this.saveCurrentCounter}>Save</button>
+          <h1 className="mt-40 un-selectable-text">{this.state.counter}</h1>
         </Swipeable>
       </div>
     );

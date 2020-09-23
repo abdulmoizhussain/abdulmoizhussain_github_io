@@ -62,36 +62,38 @@ export default class extends React.Component {
   render() {
     const { displayCopyButton, message, youtubeEmbeddedUrl } = this.state;
 
-    return <div className="row">
-      <div className="col">
-        <div className="row">
-          <label className="col" htmlFor="youtube_embedded_url">Convert embedded/shared youtube-url to web-url:</label>
-        </div>
-
-        <div className="row">
-          <input
-            type='text'
-            placeholder="https://youtu.be/eg_link"
-            id='youtube_embedded_url'
-            value={youtubeEmbeddedUrl}
-            className="col"
-            onChange={e => this.setState({ youtubeEmbeddedUrl: e.target.value }, this.onKeyUpEmbeddedToWebUrl)}
-          />
-        </div>
-
-        <div className="row"><span className="col">{message}</span></div>
-
-        <br />
-
-        <div className="row">
-          <div className="col-1" />
-          <div className="col-10">
-            <button onClick={this.copyToClip} className={`btn btn-primary btn-block ${displayCopyButton ? '' : 'invisible'}`}>Copy</button>
+    return <div className="col">
+      <div className="row">
+        <div className="col">
+          <div className="row">
+            <label className="col" htmlFor="youtube_embedded_url">Convert embedded/shared youtube-url to web-url:</label>
           </div>
-          <div className="col-1" />
-        </div>
 
-        <input hidden={!this.state.copyToClipInProgress} ref={this.inputCopyToClip} />
+          <div className="row">
+            <input
+              type='text'
+              placeholder="https://youtu.be/eg_link"
+              id='youtube_embedded_url'
+              value={youtubeEmbeddedUrl}
+              className="col"
+              onChange={e => this.setState({ youtubeEmbeddedUrl: e.target.value }, this.onKeyUpEmbeddedToWebUrl)}
+            />
+          </div>
+
+          <div className="row"><span className="col">{message}</span></div>
+
+          <br />
+
+          <div className="row">
+            <div className="col-1" />
+            <div className="col-10">
+              <button onClick={this.copyToClip} className={`btn btn-primary btn-block ${displayCopyButton ? '' : 'invisible'}`}>Copy</button>
+            </div>
+            <div className="col-1" />
+          </div>
+
+          <input hidden={!this.state.copyToClipInProgress} ref={this.inputCopyToClip} />
+        </div>
       </div>
     </div>;
   }
