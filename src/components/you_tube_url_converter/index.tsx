@@ -83,12 +83,10 @@ export default class extends React.Component {
 
           <div className="row"><span className="col">{message}</span></div>
 
-          <br />
-
           <div className="row">
             <div className="col-1" />
             <div className="col-10">
-              <button onClick={this.copyToClip} className={`btn btn-primary btn-block ${displayCopyButton ? '' : 'invisible'}`}>Copy</button>
+              <button onClick={this.copyToClip} className={`btn btn-primary m-0 ${displayCopyButton ? '' : 'invisible'}`}>Copy Web URL</button>
             </div>
             <div className="col-1" />
           </div>

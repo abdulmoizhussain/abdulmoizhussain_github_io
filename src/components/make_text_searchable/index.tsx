@@ -43,7 +43,9 @@ export default class RenderMarkdown extends React.Component {
       </div>
 
       <div className="row">
-        <div className="col"><button onClick={this.makeItSearchable}>&#x2191; Make It Searchable &#x2191;</button></div>
+        <div className="col">
+          <button onClick={this.makeItSearchable} className="btn btn-primary m-0">Clean &amp; Copy</button>
+        </div>
       </div>
 
     </div>
