@@ -6,25 +6,33 @@ import MakeTextSearchable from '../../components/make_text_searchable';
 import './app.css';
 
 export default () => (
-  <div className="text-center home_page dark_background">
-    <ul className='list-unstyled'>
-      <li className="row mt-3">
-        <div className="col">
-          <Link className='col app_link p-0' to={AppRoute.RgbToHex}>RGB-Hex</Link>
-        </div>
-      </li>
-      <li className="row">
-        <div className="col">
-          <Link className='col app_link p-0' to={AppRoute.RenderMarkdown}>Render Markdown</Link>
-        </div>
-      </li>
-      <li className="row">
-        <div className="col">
-          <Link className='col app_link p-0' to={AppRoute.Counter}>Counter</Link>
-        </div>
-      </li>
-      <li className="row mt-3"><MakeTextSearchable /></li>
-      <li className="row mt-3"><YouTubeUrlConverter /></li>
-    </ul>
+  <div
+    style={{ height: document.body.clientHeight * 0.91 }}
+    className="container-fluid font-lg text-white text-center bg-dark">
+
+    <br />
+    <div className="row p-0 m-0">
+      <div className="col p-0 m-0">
+        <ul className='list-unstyled'>
+          <li className="row">
+            <div className="col">
+              <Link className='col app_link p-0' to={AppRoute.RgbToHex}>RGB-Hex</Link>
+            </div>
+          </li>
+          <li className="row">
+            <div className="col">
+              <Link className='col app_link p-0' to={AppRoute.RenderMarkdown}>Render Markdown</Link>
+            </div>
+          </li>
+          <li className="row">
+            <div className="col">
+              <Link className='col app_link p-0' to={AppRoute.Counter}>Counter</Link>
+            </div>
+          </li>
+          <li className="row mt-3"><MakeTextSearchable /></li>
+          <li className="row mt-3"><YouTubeUrlConverter /></li>
+        </ul>
+      </div>
+    </div>
   </div>
 );

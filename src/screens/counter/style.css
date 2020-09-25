@@ -1,9 +1,5 @@
-.swipe-container {
+.bg-swipe-container {
   background-color: #B4C6D7FF;
-  height: 60vh;
-  border: 1px solid black;
-  vertical-align: middle;
-  text-align: center;
 }
 
 .mt-40 {

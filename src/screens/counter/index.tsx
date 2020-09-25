@@ -81,8 +81,10 @@ export default class RenderMarkdown extends React.Component {
 
   render() {
     return (
-      <div>
-        <Swipeable className="swipe-container"
+      <div className="p-2">
+        <Swipeable
+          style={{ height: document.body.clientHeight * 0.88 }}
+          className="bg-swipe-container p-0 m-0 text-center border border-secondary"
           onSwipedUp={this.onIncrement}
           onSwipedRight={this.onIncrement}
           onSwipedDown={this.onDecrement}

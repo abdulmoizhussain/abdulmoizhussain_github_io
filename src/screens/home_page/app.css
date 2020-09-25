@@ -1,12 +1,9 @@
-.dark_background {
-  background-color: #282c34;
+.font-lg {
+  font-size: calc(10px + 2vmin);
 }
 
-.home_page {
-  color: white;
-  height: 100vh;
-  width: auto;
-  font-size: calc(10px + 2vmin);
+html, body, #root {
+  height: 100%;
 }
 
 .app_link {
