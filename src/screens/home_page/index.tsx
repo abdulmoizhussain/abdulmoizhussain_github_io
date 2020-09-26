@@ -6,12 +6,18 @@ import MakeTextSearchable from '../../components/make_text_searchable';
 import { forceUpdateServiceWorker } from '../../service-worker';
 import './app.css';
 
-export default () => (
-  <div className="container-fluid font-lg text-white text-center bg-dark p-0">
+export default () => {
+  function onForceUpdate() {
+    if (window.confirm("Are you sure you want to force refresh?")) {
+      forceUpdateServiceWorker();
+    }
+  }
+
+  return <div className="container-fluid font-lg text-white text-center bg-dark p-0">
     <button
       title="Force refresh to update this website with latest features."
       className="btn btn-sm btn-light"
-      onClick={forceUpdateServiceWorker}
+      onClick={onForceUpdate}
     >
       ForceUpdateSite
       </button>
@@ -40,4 +46,4 @@ export default () => (
       </div>
     </div>
   </div>
-);
+};
