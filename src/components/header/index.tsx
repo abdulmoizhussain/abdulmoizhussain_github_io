@@ -9,8 +9,8 @@ export default () => (
       <GitHubSvg />
     </a>
 
-    <Link to={AppRoute.HomePage} title="Home Page" className='ml-auto' >
+    <Link to={AppRoute.HomePage} title="Home Page" className='ml-auto'>
       <b>Home</b>
     </Link>
-  </nav>
+  </nav >
 );

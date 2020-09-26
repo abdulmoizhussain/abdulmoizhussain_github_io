@@ -57,7 +57,7 @@ export function register(config: { onUpdate: (arg0: ServiceWorkerRegistration) =
 function registerValidSW(swUrl: string, config: { onUpdate: (arg0: ServiceWorkerRegistration) => void; onSuccess: (arg0: ServiceWorkerRegistration) => void; }) {
   navigator.serviceWorker
     .register(swUrl)
-    .then(registration => {
+    .then((registration: ServiceWorkerRegistration) => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
@@ -135,3 +135,18 @@ export function unregister() {
     });
   }
 }
+
+function getServiceWorkerRegistration(): Promise<ServiceWorkerRegistration | null> {
+  if ('serviceWorker' in navigator) {
+    return navigator.serviceWorker.ready;
+  }
+  return new Promise<ServiceWorkerRegistration | null>((resolve, _) => {
+    resolve();
+  });
+}
+
+export function forceUpdateServiceWorker() {
+  getServiceWorkerRegistration().then((registration) => {
+    registration?.unregister().then(() => { window.location.reload(); })
+  });
+};

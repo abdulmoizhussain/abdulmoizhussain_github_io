@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 import { AppRoute } from './../../common/constants';
 import YouTubeUrlConverter from '../../components/you_tube_url_converter';
 import MakeTextSearchable from '../../components/make_text_searchable';
+import { forceUpdateServiceWorker } from '../../service-worker';
 import './app.css';
 
 export default () => (
-  <div
-    style={{ height: document.body.clientHeight * 0.91 }}
-    className="container-fluid font-lg text-white text-center bg-dark">
+  <div className="container-fluid font-lg text-white text-center bg-dark p-0">
+    <button
+      title="Force refresh to update this website with latest features."
+      className="btn btn-sm btn-light"
+      onClick={forceUpdateServiceWorker}
+    >
+      ForceUpdateSite
+      </button>
 
-    <br />
-    <div className="row p-0 m-0">
+    <div className="row p-0 m-0 mt-5">
       <div className="col p-0 m-0">
         <ul className='list-unstyled'>
           <li className="row">
