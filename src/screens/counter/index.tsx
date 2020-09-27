@@ -11,6 +11,7 @@ const ArrowKeyNames = {
 };
 
 export default class RenderMarkdown extends React.Component {
+  swipeAbleHeigh: number = 0;
   counterTextElement = React.createRef<HTMLHeadingElement>();
   swipeRequiredDistance = 60;
   state = {
@@ -18,6 +19,7 @@ export default class RenderMarkdown extends React.Component {
   };
 
   componentDidMount() {
+    this.swipeAbleHeigh = window.innerHeight * 0.8;
     this.setState({ counter: Number(localStorage.getItem(LocalStorageKey.COUNTER)) });
     window.addEventListener("beforeunload", this.onBeforeUnload);
     window.addEventListener("keyup", this.onKeyUpListener);
@@ -83,7 +85,8 @@ export default class RenderMarkdown extends React.Component {
     return (
       <div className="p-2">
         <Swipeable
-          style={{ height: document.body.clientHeight * 0.88 }}
+          // style={{ height: document.body.clientHeight * 0.88 }}
+          style={{ height: this.swipeAbleHeigh }}
           className="bg-swipe-container p-0 m-0 text-center border border-secondary"
           onSwipedUp={this.onIncrement}
           onSwipedRight={this.onIncrement}
