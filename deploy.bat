@@ -6,7 +6,7 @@ cd ..
 robocopy /MOVE .\abdulmoizhussain.github.io\.git\ .\abdulmoizhussain_github_io\build\.git\
 robocopy /MIR .\abdulmoizhussain_github_io\build\ .\abdulmoizhussain.github.io\
 
-cd abdulmoizhussain_github_io\build
+cd abdulmoizhussain.github.io
 
 git add --all
 
