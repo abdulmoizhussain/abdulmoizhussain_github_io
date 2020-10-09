@@ -15,5 +15,7 @@ set /p commit_message="Enter Commit Message: "
 git commit -m %commit_message%
 git push
 
-cd ..
-cmd /k rmdir /s /q .\abdulmoizhussaingithubio
+cmd /k cd ..
+
+REM below line is optional but might be necessary
+REM cmd /k rmdir /s /q .\abdulmoizhussaingithubio
