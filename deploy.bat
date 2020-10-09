@@ -1,10 +1,12 @@
 REM https://www.windows-commandline.com/batch-file-echo/
 @echo off
 
-git clone https://github.com/abdulmoizhussain/abdulmoizhussain.github.io.git abdulmoizhussaingithubio
-robocopy /MOVE .\abdulmoizhussaingithubio\.git .\build\.git
-robocopy /MIR .\build\ .\abdulmoizhussaingithubio\
-cd build
+cd ..
+
+robocopy /MOVE .\abdulmoizhussain.github.io\.git\ .\abdulmoizhussain_github_io\build\.git\
+robocopy /MIR .\abdulmoizhussain_github_io\build\ .\abdulmoizhussain.github.io\
+
+cd abdulmoizhussain_github_io\build
 
 git add --all
 
@@ -18,6 +20,3 @@ git commit -m "%commit_message%"
 git push
 
 cmd /k cd ..
-
-REM below line is optional if you want to check the changes. but it will be necessary.
-REM cmd /k rmdir /s /q .\abdulmoizhussaingithubio
