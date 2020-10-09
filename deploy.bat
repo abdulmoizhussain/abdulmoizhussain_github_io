@@ -3,7 +3,7 @@ REM https://www.windows-commandline.com/batch-file-echo/
 
 cd ..
 
-robocopy /MOVE .\abdulmoizhussain.github.io\.git\ .\abdulmoizhussain_github_io\build\.git\
+robocopy /MIR .\abdulmoizhussain.github.io\.git\ .\abdulmoizhussain_github_io\build\.git\
 robocopy /MIR .\abdulmoizhussain_github_io\build\ .\abdulmoizhussain.github.io\
 
 cd abdulmoizhussain.github.io
