@@ -49,6 +49,8 @@ export default class RenderMarkdown extends React.Component {
     localStorage.setItem(LocalStorageKey.COUNTER, this.state.counter.toString());
   };
 
+  saveCurrentCounterIfDivisibleBy10 = () => !(this.state.counter % 10) && this.saveCurrentCounter();
+
   onKeyUpListener = (ev: KeyboardEvent) => {
     const keyName = ev.key;
     if (keyName === ArrowKeyNames.ArrowUp || keyName === ArrowKeyNames.ArrowRight) {
@@ -65,7 +67,7 @@ export default class RenderMarkdown extends React.Component {
       this.decrementCounter();
     }
   };
-  decrementCounter = () => { this.setState({ counter: this.state.counter - 1 }); };
+  decrementCounter = () => { this.setState({ counter: this.state.counter - 1 }, this.saveCurrentCounterIfDivisibleBy10); };
 
   onIncrement = (eventData: EventData) => {
     const [deltaX, deltaY] = [Math.abs(eventData.deltaX), Math.abs(eventData.deltaY)];
@@ -73,7 +75,7 @@ export default class RenderMarkdown extends React.Component {
       this.incrementCounter();
     }
   };
-  incrementCounter = () => { this.setState({ counter: this.state.counter + 1 }); };
+  incrementCounter = () => { this.setState({ counter: this.state.counter + 1 }, this.saveCurrentCounterIfDivisibleBy10); };
 
   onResetCounter = () => {
     if (window.confirm("Are you sure you want to reset counter to zero?")) {
