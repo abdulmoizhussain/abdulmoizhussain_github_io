@@ -77,7 +77,7 @@ export function toDeci(hexVal = "0") {
 
 export function setRGB(rgbStr: string) {
   (document.getElementById("rgbSTR") as HTMLInputElement).innerHTML = rgbStr;
-  // document.getElementById("hexBox")?.setAttribute("style", "background-color: " + rgbStr);
+  (document.getElementById("hexBox") as HTMLInputElement).setAttribute("style", "background-color: " + rgbStr);
 }
 
 // export function parseInteger(integer) {
