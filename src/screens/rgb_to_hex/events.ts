@@ -9,12 +9,12 @@ export function rgbToHex() {
     return setHexa(hexValue);
   }
   const rgbaSplit = rgb.split(rgb.indexOf(',') > -1 ? "," : " ");
-  
+
   const r = rgbaSplit[0];
   const g = rgbaSplit[1];
   const b = rgbaSplit[2];
   const a = rgbaSplit.length > 3 ? rgbaSplit[3] : "1";
-  
+
   hexValue = "#";
   hexValue += toHexa(r);
   hexValue += toHexa(g);
@@ -36,6 +36,11 @@ export function toAlpha(alphaValue: string) {
   alphaInFloat = Math.round(alphaInFloat * 100) / 100; // for 0.95, two decimal places
   alphaInFloat = Math.round(alphaInFloat * 255);
   return convertToHex(alphaInFloat);
+}
+
+export function fromHexToAlphaDecimal(hexValue: string) {
+  // source: https://stackoverflow.com/a/29101148
+  return (parseInt(hexValue, 16) / 255).toFixed(2);
 }
 
 export function convertToHex(deci: Number) {
@@ -60,14 +65,20 @@ export function hexToRGB() {
   if (hexa.indexOf("#") > -1) {
     hexa = hexa.substr(1);
   }
-  hexa = hexa.substr(0, 6);
   const r = hexa.substr(0, 2);
   const g = hexa.substr(2, 2);
   const b = hexa.substr(4, 2);
-  hexa = "rgb(";
+  let a = hexa.substr(6, 2);
+
+  if (!a) {
+    a = "ff";
+  }
+
+  hexa = "rgba(";
   hexa += toDeci(r) + ", ";
   hexa += toDeci(g) + ", ";
-  hexa += toDeci(b) + ")";
+  hexa += toDeci(b) + ", ";
+  hexa += fromHexToAlphaDecimal(a) + ")";
   setRGB(hexa);
 }
 
