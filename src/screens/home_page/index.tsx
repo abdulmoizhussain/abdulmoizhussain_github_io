@@ -46,6 +46,11 @@ export default () => {
               <Link className='app_link p-0' to={AppRoute.Counter}>Counter</Link>
             </div>
           </li>
+          <li className="row m-0">
+            <div className="col p-0">
+              <Link className='app_link p-0' to={AppRoute.Percentage}>Percentage</Link>
+            </div>
+          </li>
           <li className="row m-0 mt-3"><MakeTextSearchable /></li>
           <li className="row m-0 mt-3"><YouTubeUrlConverter /></li>
         </ul>
