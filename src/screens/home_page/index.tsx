@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { AppRoute } from './../../common/constants';
 import YouTubeUrlConverter from '../../components/you_tube_url_converter';
+import GithubUrlConverter from '../../components/github_url_converter/index';
 import MakeTextSearchable from '../../components/make_text_searchable';
 import { forceUpdateServiceWorker } from '../../service-worker';
 import './app.css';
@@ -52,6 +53,7 @@ export default () => {
             </div>
           </li>
           <li className="row m-0 mt-3"><MakeTextSearchable /></li>
+          <li className="row m-0 mt-3"><GithubUrlConverter /></li>
           <li className="row m-0 mt-3"><YouTubeUrlConverter /></li>
         </ul>
 
