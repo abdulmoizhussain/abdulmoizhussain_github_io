@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     const typeAndRates = localStorage.getItem("ClotheTypeAndRates");
-    const typeAndRatesArray = JSON.parse(typeAndRates ?? "");
+    const typeAndRatesArray = typeAndRates ? JSON.parse(typeAndRates) : null;
     if (typeAndRatesArray && Array.isArray(typeAndRatesArray)) {
       setKeysOnly(typeAndRatesArray);
     }
