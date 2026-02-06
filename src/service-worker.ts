@@ -141,7 +141,7 @@ function getServiceWorkerRegistration(): Promise<ServiceWorkerRegistration | nul
     return navigator.serviceWorker.ready;
   }
   return new Promise<ServiceWorkerRegistration | null>((resolve, _) => {
-    resolve();
+    resolve(null);
   });
 }
 
